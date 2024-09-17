@@ -11,12 +11,12 @@ import SwiftUI
 
 @Model
 final class Book {
-    let title: String
-    let autor: String
-    let dateAdded: Date
-    let dateStarted: Date
-    let dateCompleted: Date
-    let summary: String
+    var title: String
+    var autor: String
+    var dateAdded: Date
+    var dateStarted: Date
+    var dateCompleted: Date
+    var summary: String
     var rating: Int?
     var status: Status
     

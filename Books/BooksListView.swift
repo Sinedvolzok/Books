@@ -16,7 +16,13 @@ struct BooksListView: View {
         NavigationStack {
             Group {
                 if books.isEmpty {
-                    ContentUnavailableView("Add Your Book Here", image: "book.fill")
+                    ContentUnavailableView {
+                        Label("No Books", systemImage: "book.fill")
+                            .padding(10)
+                    } description: {
+                        Text("New books will appear here.")
+                    }
+
                 } else {
                     List {
                         ForEach(books) { book in
@@ -28,7 +34,7 @@ struct BooksListView: View {
                                     VStack(alignment: .leading){
                                         Text(book.title)
                                             .font(.title2)
-                                        Text(book.autor)
+                                        Text(book.author)
                                             .foregroundStyle(.secondary)
                                         if let rating = book.rating {
                                             HStack {
@@ -73,6 +79,8 @@ struct BooksListView: View {
 }
 
 #Preview {
-    BooksListView()
-        .modelContainer(for: Book.self, inMemory: true)
+    let preview = Preview(Book.self)
+    preview.addExempes(Book.mock)
+    return BooksListView()
+        .modelContainer(preview.container)
 }

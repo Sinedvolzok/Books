@@ -13,7 +13,7 @@ struct EditBookView: View {
     @Environment(\.dismiss) private var dismiss
     let book: Book
     @State private var title         = ""
-    @State private var autor         = ""
+    @State private var author        = ""
     @State private var dateAdded     = Date.distantPast
     @State private var dateStarted   = Date.distantPast
     @State private var dateCompleted = Date.distantPast
@@ -92,7 +92,7 @@ struct EditBookView: View {
                     .foregroundStyle(.secondary)
             }
             LabeledContent {
-                TextField("", text: $autor)
+                TextField("", text: $author)
             } label: {
                 Text("Autor")
                     .foregroundStyle(.secondary)
@@ -116,7 +116,7 @@ struct EditBookView: View {
             if changed {
                 Button("Update") {
                     book.title         = title
-                    book.autor         = autor
+                    book.author         = author
                     book.dateAdded     = dateAdded
                     book.dateStarted   = dateStarted
                     book.dateCompleted = dateCompleted
@@ -130,7 +130,7 @@ struct EditBookView: View {
         }
         .onAppear {
             title         = book.title
-            autor         = book.autor
+            author        = book.author
             dateAdded     = book.dateAdded
             dateStarted   = book.dateStarted
             dateCompleted = book.dateCompleted
@@ -142,7 +142,7 @@ struct EditBookView: View {
     
     var changed: Bool {
            title         != book.title
-        || autor         != book.autor
+        || author        != book.author
         || dateAdded     != book.dateAdded
         || dateStarted   != book.dateStarted
         || dateCompleted != book.dateCompleted
@@ -152,6 +152,10 @@ struct EditBookView: View {
     }
 }
 
-//#Preview {
-//    EditBookView()
-//}
+#Preview {
+    let preview = Preview(Book.self)
+    return NavigationStack {
+        EditBookView(book: Book.mock[4])
+            .modelContainer(preview.container)
+    }
+}

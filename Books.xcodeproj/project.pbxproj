@@ -15,6 +15,8 @@
 		531DDAA92BD41AC7003004DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531DDAA82BD41AC7003004DB /* Preview Assets.xcassets */; };
 		536846722C901AD0005BA39F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536846712C901AD0005BA39F /* Book.swift */; };
 		536846742C9024B4005BA39F /* NewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536846732C9024B4005BA39F /* NewBookView.swift */; };
+		538E3CB42C9D4B1C0083EBFA /* MockBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E3CB32C9D4B1C0083EBFA /* MockBooks.swift */; };
+		539BBF412CA9A1E200D3B263 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539BBF402CA9A1E200D3B263 /* PreviewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		531DDAA82BD41AC7003004DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		536846712C901AD0005BA39F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		536846732C9024B4005BA39F /* NewBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookView.swift; sourceTree = "<group>"; };
+		538E3CB32C9D4B1C0083EBFA /* MockBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBooks.swift; sourceTree = "<group>"; };
+		539BBF402CA9A1E200D3B263 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				531DDAA82BD41AC7003004DB /* Preview Assets.xcassets */,
+				538E3CB32C9D4B1C0083EBFA /* MockBooks.swift */,
+				539BBF402CA9A1E200D3B263 /* PreviewContainer.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -155,6 +161,8 @@
 				531DDAA42BD41AC5003004DB /* BooksListView.swift in Sources */,
 				531DDAA22BD41AC5003004DB /* BooksApp.swift in Sources */,
 				536846722C901AD0005BA39F /* Book.swift in Sources */,
+				539BBF412CA9A1E200D3B263 /* PreviewContainer.swift in Sources */,
+				538E3CB42C9D4B1C0083EBFA /* MockBooks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

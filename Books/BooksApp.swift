@@ -10,13 +10,25 @@ import SwiftData
 
 @main
 struct BooksApp: App {
+    let container: ModelContainer
     var body: some Scene {
         WindowGroup {
             BooksListView()
         }
-        .modelContainer(for: Book.self)
+        .modelContainer(container)
     }
+    
     init() {
+        let schema = Schema([Book.self])
+        let configuration = ModelConfiguration("Books", schema: schema)
+        do {
+            container = try ModelContainer(
+                for: schema,
+                configurations: configuration
+            )
+        } catch {
+            fatalError("Could not create model container: \(error)")
+        }
         print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
 }

@@ -18,7 +18,7 @@ struct NewBookView: View {
                 TextField("Book Title", text: $title)
                 TextField("Autor", text: $autor)
                 Button("Create") {
-                    let newBook = Book(title: title, autor: autor)
+                    let newBook = Book(title: title, author: autor)
                     context.insert(newBook)
                     dismiss()
                 }

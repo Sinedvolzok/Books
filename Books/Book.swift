@@ -12,7 +12,7 @@ import SwiftUI
 @Model
 final class Book {
     var title: String
-    var autor: String
+    var author: String
     var dateAdded: Date
     var dateStarted: Date
     var dateCompleted: Date
@@ -22,7 +22,7 @@ final class Book {
     
     init(
         title: String,
-        autor: String,
+        author: String,
         dateAdded: Date = Date.now,
         dateStarted: Date = Date.distantPast,
         dateCompleted: Date = Date.distantPast,
@@ -31,7 +31,7 @@ final class Book {
         status: Status = .onShelf
     ) {
         self.title = title
-        self.autor = autor
+        self.author = author
         self.dateAdded = dateAdded
         self.dateStarted = dateStarted
         self.dateCompleted = dateCompleted

@@ -17,6 +17,7 @@
 		536846742C9024B4005BA39F /* NewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536846732C9024B4005BA39F /* NewBookView.swift */; };
 		538E3CB42C9D4B1C0083EBFA /* MockBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E3CB32C9D4B1C0083EBFA /* MockBooks.swift */; };
 		539BBF412CA9A1E200D3B263 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539BBF402CA9A1E200D3B263 /* PreviewContainer.swift */; };
+		539BBF432CAD256A00D3B263 /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539BBF422CAD256A00D3B263 /* BookList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		536846732C9024B4005BA39F /* NewBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookView.swift; sourceTree = "<group>"; };
 		538E3CB32C9D4B1C0083EBFA /* MockBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBooks.swift; sourceTree = "<group>"; };
 		539BBF402CA9A1E200D3B263 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
+		539BBF422CAD256A00D3B263 /* BookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				5317A8052C9A1DE400A341D1 /* RatingsView.swift */,
 				536846732C9024B4005BA39F /* NewBookView.swift */,
 				536846712C901AD0005BA39F /* Book.swift */,
+				539BBF422CAD256A00D3B263 /* BookList.swift */,
 				531DDAA52BD41AC7003004DB /* Assets.xcassets */,
 				531DDAA72BD41AC7003004DB /* Preview Content */,
 			);
@@ -158,6 +161,7 @@
 				536846742C9024B4005BA39F /* NewBookView.swift in Sources */,
 				5317A8062C9A1DE400A341D1 /* RatingsView.swift in Sources */,
 				5317A8042C9A12DA00A341D1 /* EditBookView.swift in Sources */,
+				539BBF432CAD256A00D3B263 /* BookList.swift in Sources */,
 				531DDAA42BD41AC5003004DB /* BooksListView.swift in Sources */,
 				531DDAA22BD41AC5003004DB /* BooksApp.swift in Sources */,
 				536846722C901AD0005BA39F /* Book.swift in Sources */,

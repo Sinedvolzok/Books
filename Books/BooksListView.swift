@@ -8,72 +8,41 @@
 import SwiftUI
 import SwiftData
 
+enum SortOrder: String, CaseIterable, Identifiable {
+    case title
+    case author
+    case status
+    var id: Self { self }
+}
+
 struct BooksListView: View {
-    @Environment(\.modelContext) private var context
-    @Query(sort: \Book.title) private var books: [Book]
     @State private var isCreatingNewBook = false
+    @State private var sortOrder = SortOrder.status
+    @State private var filter = ""
     var body: some View {
         NavigationStack {
-            Group {
-                if books.isEmpty {
-                    ContentUnavailableView {
-                        Label("No Books", systemImage: "book.fill")
-                            .padding(10)
-                    } description: {
-                        Text("New books will appear here.")
-                    }
-
-                } else {
-                    List {
-                        ForEach(books) { book in
-                            NavigationLink {
-                                EditBookView(book: book)
-                            } label: {
-                                HStack(spacing: 12) {
-                                    book.icon
-                                    VStack(alignment: .leading){
-                                        Text(book.title)
-                                            .font(.title2)
-                                        Text(book.author)
-                                            .foregroundStyle(.secondary)
-                                        if let rating = book.rating {
-                                            HStack {
-                                                ForEach(1..<rating, id: \.self) {_ in
-                                                    Image(systemName: "fill.star")
-                                                        .imageScale(.small)
-                                                        .foregroundStyle(.yellow)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .onDelete { indexSet in
-                            indexSet.forEach { index in
-                                let book = books[index]
-                                context.delete(book)
-                            }
-                        }
-                    }
-                    .listStyle(.plain)
-                    .padding()
+            Picker("", selection: $sortOrder) {
+                ForEach(SortOrder.allCases) { sortOrder in
+                    Text("Sort by \(sortOrder.rawValue)").tag(sortOrder)
                 }
             }
-            .navigationTitle("My Books")
-            .toolbar {
-                Button {
-                    isCreatingNewBook = true
-                } label: {
-                    Image(systemName: "plus.circle.fill")
-                        .imageScale(.large)
-                    
+            .buttonStyle(.bordered)
+            BookList(sortOrder: sortOrder, filterString: filter)
+                .searchable(text: $filter, prompt: "filer by title or autor")
+                .navigationTitle("My Books")
+                .toolbar {
+                    Button {
+                        isCreatingNewBook = true
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .imageScale(.large)
+                        
+                    }
                 }
-            }
-            .sheet(isPresented: $isCreatingNewBook) {
-                NewBookView()
-                    .presentationDetents([.medium])
-            }
+                .sheet(isPresented: $isCreatingNewBook) {
+                    NewBookView()
+                        .presentationDetents([.medium])
+                }
         }
     }
 }

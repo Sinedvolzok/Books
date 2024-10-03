@@ -122,7 +122,7 @@ struct EditBookView: View {
                     book.dateCompleted = dateCompleted
                     book.summary       = summary
                     book.rating        = rating
-                    book.status        = status
+                    book.status        = status.rawValue
                     dismiss()
                 }
                 .buttonStyle(.borderedProminent)
@@ -136,7 +136,7 @@ struct EditBookView: View {
             dateCompleted = book.dateCompleted
             summary       = book.summary
             rating        = book.rating
-            status        = book.status
+            status        = Status(rawValue: book.status)!
         }
     }
     
@@ -148,7 +148,7 @@ struct EditBookView: View {
         || dateCompleted != book.dateCompleted
         || summary       != book.summary
         || rating        != book.rating
-        || status        != book.status
+        || status        != Status(rawValue: book.status)!
     }
 }
 

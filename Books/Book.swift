@@ -16,9 +16,11 @@ final class Book {
     var dateAdded: Date
     var dateStarted: Date
     var dateCompleted: Date
-    var summary: String
-    var rating: Int?
+    @Attribute(originalName: "summary")
+    var synopsis: String
+    var rating: Int = 0
     var status: Status.RawValue
+    var recomendedBy: String = ""
     
     init(
         title: String,
@@ -26,28 +28,32 @@ final class Book {
         dateAdded: Date = Date.now,
         dateStarted: Date = Date.distantPast,
         dateCompleted: Date = Date.distantPast,
-        summary: String = "",
-        rating: Int? = nil,
-        status: Status = .onShelf
+        synopsis: String = "",
+        rating: Int = 0,
+        status: Status = .onShelf,
+        recomendedBy: String = ""
     ) {
         self.title = title
         self.author = author
         self.dateAdded = dateAdded
         self.dateStarted = dateStarted
         self.dateCompleted = dateCompleted
-        self.summary = summary
+        self.synopsis = synopsis
         self.rating = rating
         self.status = status.rawValue
+        self.recomendedBy = recomendedBy
     }
     
     var icon: Image {
-        switch Status(rawValue: status)! {
+        switch Status(rawValue: status) {
         case .onShelf:
             Image(systemName: "checkmark.diamond.fill")
         case .inProgress:
             Image(systemName: "book.fill")
         case .completed:
             Image(systemName: "books.vertical.fill")
+        case .none:
+            Image(systemName: "book")
         }
         
     }

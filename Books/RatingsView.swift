@@ -16,7 +16,7 @@ import SwiftUI
 ///
 public struct RatingsView: View {
     var maxRating: Int
-    @Binding var currentRating: Int?
+    @Binding var currentRating: Int
     var width:Int
     var color: UIColor
     var sfSymbol: String
@@ -29,7 +29,7 @@ public struct RatingsView: View {
     ///   - color: The color of the image ( (Default - systemYellow)
     ///   - sfSymbol: A String representing an SFImage that has a fill variabnt (Default -  "star")
     ///
-    public init(maxRating: Int, currentRating: Binding<Int?>, width: Int = 20, color: UIColor = .systemYellow, sfSymbol: String = "star") {
+    public init(maxRating: Int, currentRating: Binding<Int>, width: Int = 20, color: UIColor = .systemYellow, sfSymbol: String = "star") {
         self.maxRating = maxRating
         self._currentRating = currentRating
         self.width = width
@@ -44,11 +44,6 @@ public struct RatingsView: View {
                     .scaledToFit()
                     .symbolVariant(.slash)
                     .foregroundStyle(Color(color))
-                    .onTapGesture {
-                        withAnimation{
-                            currentRating = nil
-                        }
-                    }
                     .opacity(currentRating == 0 ? 0 : 1)
             ForEach(1...maxRating, id: \.self) { rating in
                Image(systemName: sfSymbol)
@@ -66,7 +61,7 @@ public struct RatingsView: View {
     }
     
     func correctImage(for rating: Int) -> Bool {
-        if let currentRating, rating < currentRating {
+        if rating < currentRating {
             return true
         } else {
             return false
@@ -94,7 +89,7 @@ extension View {
 
 #Preview {
     struct PreviewWrapper: View {
-        @State var currentRating: Int? = 3
+        @State var currentRating: Int = 3
         
         var body: some View {
             RatingsView(

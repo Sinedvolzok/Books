@@ -19,6 +19,7 @@ struct BooksListView: View {
     @State private var isCreatingNewBook = false
     @State private var sortOrder = SortOrder.status
     @State private var filter = ""
+    @State private var sortFilter = ""
     var body: some View {
         NavigationStack {
             Picker("", selection: $sortOrder) {
@@ -28,7 +29,7 @@ struct BooksListView: View {
             }
             .buttonStyle(.bordered)
             BookList(sortOrder: sortOrder, filterString: filter)
-                .searchable(text: $filter, prompt: "filer by title or autor")
+                .searchable(text: $filter, prompt: "Filer by title or autor")
                 .navigationTitle("My Books")
                 .toolbar {
                     Button {
@@ -36,7 +37,6 @@ struct BooksListView: View {
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .imageScale(.large)
-                        
                     }
                 }
                 .sheet(isPresented: $isCreatingNewBook) {

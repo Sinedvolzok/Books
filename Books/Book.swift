@@ -21,6 +21,7 @@ final class Book {
     var rating: Int = 0
     var status: Status.RawValue
     var recomendedBy: String = ""
+    var quotes: [Quote]?
     
     init(
         title: String,

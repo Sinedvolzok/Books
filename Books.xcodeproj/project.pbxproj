@@ -18,6 +18,8 @@
 		538E3CB42C9D4B1C0083EBFA /* MockBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E3CB32C9D4B1C0083EBFA /* MockBooks.swift */; };
 		539BBF412CA9A1E200D3B263 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539BBF402CA9A1E200D3B263 /* PreviewContainer.swift */; };
 		539BBF432CAD256A00D3B263 /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539BBF422CAD256A00D3B263 /* BookList.swift */; };
+		539BBF452CBCEE5300D3B263 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539BBF442CBCEE5300D3B263 /* Quote.swift */; };
+		539BBF472CBCF1BA00D3B263 /* QuoteListIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539BBF462CBCF1BA00D3B263 /* QuoteListIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		538E3CB32C9D4B1C0083EBFA /* MockBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBooks.swift; sourceTree = "<group>"; };
 		539BBF402CA9A1E200D3B263 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		539BBF422CAD256A00D3B263 /* BookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
+		539BBF442CBCEE5300D3B263 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		539BBF462CBCF1BA00D3B263 /* QuoteListIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				5317A8052C9A1DE400A341D1 /* RatingsView.swift */,
 				536846732C9024B4005BA39F /* NewBookView.swift */,
 				536846712C901AD0005BA39F /* Book.swift */,
+				539BBF442CBCEE5300D3B263 /* Quote.swift */,
+				539BBF462CBCF1BA00D3B263 /* QuoteListIView.swift */,
 				539BBF422CAD256A00D3B263 /* BookList.swift */,
 				531DDAA52BD41AC7003004DB /* Assets.xcassets */,
 				531DDAA72BD41AC7003004DB /* Preview Content */,
@@ -166,7 +172,9 @@
 				531DDAA22BD41AC5003004DB /* BooksApp.swift in Sources */,
 				536846722C901AD0005BA39F /* Book.swift in Sources */,
 				539BBF412CA9A1E200D3B263 /* PreviewContainer.swift in Sources */,
+				539BBF452CBCEE5300D3B263 /* Quote.swift in Sources */,
 				538E3CB42C9D4B1C0083EBFA /* MockBooks.swift in Sources */,
+				539BBF472CBCF1BA00D3B263 /* QuoteListIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

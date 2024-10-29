@@ -13,9 +13,11 @@ struct QuoteListIView: View {
     @State private var text = ""
     @State private var page = ""
     @State private var selectedQuote: Quote?
+    
     var isEditing: Bool {
         selectedQuote != nil
     }
+    
     var body: some View {
         GroupBox {
             HStack {
@@ -59,6 +61,42 @@ struct QuoteListIView: View {
                 .frame(height: 100)
         }
         .padding(.horizontal)
+        List {
+            let sortedQuotes = book.quotes?.sorted(using:
+                KeyPathComparator(\Quote.creationDate)) ?? []
+            ForEach(sortedQuotes) { quote in
+                VStack(alignment: .leading) {
+                    Text(
+                        quote.creationDate,
+                        format: .dateTime.month().day().year()
+                    )
+                    Text(quote.text)
+                    HStack {
+                        Spacer()
+                        if let page = quote.page, !page.isEmpty {
+                            Text("Page: \(page)")
+                        }
+                    }
+                }
+                .contentShape(RoundedRectangle(cornerRadius: 16))
+                .onTapGesture {
+                    selectedQuote = quote
+                    text = quote.text
+                    page = quote.page ?? ""
+                }
+            }
+            .onDelete { indexSet in
+                    withAnimation {
+                        indexSet.forEach { index in
+                            if let quote = book.quotes?[index] {
+                                modelContext.delete(quote)
+                            }
+                        }
+                    }
+                }
+        }
+        .listStyle(.plain)
+        .navigationTitle("Qoutes")
     }
 }
 
@@ -68,6 +106,7 @@ struct QuoteListIView: View {
     preview.addExempes(books)
     return NavigationStack {
         QuoteListIView(book: books[2])
+            .navigationBarTitleDisplayMode(.inline)
             .modelContainer(preview.container)
     }
 }

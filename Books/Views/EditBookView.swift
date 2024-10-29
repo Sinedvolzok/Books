@@ -22,6 +22,7 @@ struct EditBookView: View {
     @State private var status        = Status.onShelf
     @State private var firstView     = true
     @State private var recomendedBy  = ""
+    @State private var isShowGenres  = false
     var body: some View {
         HStack {
             Text("Status")
@@ -114,6 +115,15 @@ struct EditBookView: View {
                         .stroke(Color(uiColor: .tertiarySystemFill),
                                 lineWidth: 1)
                 }
+            NavigationLink {
+                QuoteListIView(book: book)
+            } label: {
+                let count = book.quotes?.count ?? 0
+                Label("^[\(count) Quotes](inflect: true)", systemImage: "quote.opening")
+            }
+            .buttonStyle(.bordered)
+            .frame(width: .infinity, alignment: .trailing)
+            .padding(.horizontal)
         }
         .padding()
         .textFieldStyle(.roundedBorder)
@@ -169,3 +179,4 @@ struct EditBookView: View {
             .modelContainer(preview.container)
     }
 }
+    

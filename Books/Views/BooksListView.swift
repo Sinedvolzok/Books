@@ -49,7 +49,10 @@ struct BooksListView: View {
 
 #Preview {
     let preview = Preview(Book.self)
-    preview.addExempes(Book.mock)
+    let books = Book.mock
+    let genres = Genre.mock
+    preview.addExempes(books)
+    preview.addExempes(genres)
     return BooksListView()
         .modelContainer(preview.container)
 }

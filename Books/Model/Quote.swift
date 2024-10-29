@@ -13,12 +13,10 @@ final class Quote {
     var creationDate: Date = Date.now
     var text: String
     var page: String?
-    
+    weak var book: Book?
+
     init(text: String, page: String? = nil) {
         self.text = text
         self.page = page
     }
-    
-    weak var book: Book?
-    
 }
